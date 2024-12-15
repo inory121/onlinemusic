@@ -14,8 +14,8 @@
         />
     <item
         android:id="@+id/tab_music"
-        android:icon="@null"
         android:enabled="true"
+        android:icon="@drawable/play2"
         android:title="播放页" />
     <item
         android:id="@+id/tab_toplist"

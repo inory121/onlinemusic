@@ -62,7 +62,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="60dp"
             android:src="@mipmap/top" />
     </RelativeLayout>
 
@@ -145,7 +145,8 @@
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
             android:layout_marginBottom="10dp"
-            app:srcCompat="@mipmap/pre" />
+            app:srcCompat="@mipmap/pre"
+            app:tint="@color/colorBlack"/>
 
         <ImageView
             android:id="@+id/musicPlayImageView"
@@ -157,7 +158,9 @@
             android:layout_marginBottom="10dp"
             android:layout_toStartOf="@+id/musicNextImageView"
             android:layout_toLeftOf="@+id/musicNextImageView"
-            app:srcCompat="@mipmap/play" />
+            app:srcCompat="@mipmap/play"
+            app:tint="@color/colorBlack"
+            />
 
         <ImageView
             android:id="@+id/musicNextImageView"
@@ -168,7 +171,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            app:srcCompat="@mipmap/next" />
+            app:srcCompat="@mipmap/next"
+            app:tint="@color/colorBlack"/>
 
     </RelativeLayout>
 </RelativeLayout>

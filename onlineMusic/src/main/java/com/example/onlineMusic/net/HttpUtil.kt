@@ -4,8 +4,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object HttpUtil {
-    val baseUrl = "http://tingapi.ting.baidu.com"
-    val baseUrl1 = "http://192.168.1.104:3000"//http://10.101.58.109/    http://192.168.1.104:3000/     http://10.101.11.130:3000
+//    val baseUrl = "http://tingapi.ting.baidu.com"
+    val baseUrl1 = "http://192.168.1.104:3000"
 
     /**
      * 根据指定的基IP地址获取retrofit

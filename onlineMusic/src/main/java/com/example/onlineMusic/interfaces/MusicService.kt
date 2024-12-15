@@ -20,21 +20,25 @@ interface MusicService {
      */
     @Headers("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36")
     @GET("/search")// /search 或者 /cloudsearch(更全)
-    fun getSearchMusicsBean(@Query("keywords") keywords:String, @Query("type") type:Int = 1, @Query("limit") limit:Int = 30): Call<SongInfo>
+    fun getSearchMusicsBean(
+        @Query("keywords") keywords: String,
+        @Query("type") type: Int = 1,
+        @Query("limit") limit: Int = 30
+    ): Call<SongInfo>
 
     /**
      * 根据id搜索歌曲url
      */
     @Headers("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36")
     @GET("/song/url")// /search 或者 /cloudsearch(更全)
-    fun getMusic(@Query("id") id:Long): Call<MusicUrl>
+    fun getMusic(@Query("id") id: Long): Call<MusicUrl>
 
     /**
      * 根据歌曲id获取歌词
      */
     @Headers("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36")
     @GET("/lyric")
-    fun getMusicLyric(@Query("id") id:Long): Call<Lyric>
+    fun getMusicLyric(@Query("id") id: Long): Call<Lyric>
 
     /**
      * 获取所有榜单
@@ -55,5 +59,5 @@ interface MusicService {
      */
     @Headers("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36")
     @GET("/song/detail")
-    fun getSongsDetail(@Query("ids") ids:String): Call<SongInfo>
+    fun getSongsDetail(@Query("ids") ids: String): Call<SongInfo>
 }

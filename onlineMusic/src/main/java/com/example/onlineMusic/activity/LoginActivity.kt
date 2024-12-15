@@ -15,15 +15,16 @@ import kotlinx.android.synthetic.main.activity_login.et_account
 import kotlinx.android.synthetic.main.activity_login.et_password
 
 
-class LoginActivity : BaseActivity(){
-    companion object{
+class LoginActivity : BaseActivity() {
+    companion object {
         //供别的activity传递参数到本activity提供参考
-        fun actionStart(context: Context){
-            val intent= Intent(context, LoginActivity::class.java)
+        fun actionStart(context: Context) {
+            val intent = Intent(context, LoginActivity::class.java)
             context.startActivity(intent)
         }
 
     }
+
     @SuppressLint("CommitPrefEdits", "ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,18 +38,22 @@ class LoginActivity : BaseActivity(){
         //点击登录
         bt_login.setOnClickListener {
             //首先判断是否有用户登录了
-            if(UserDB.getUserDB(this)?.isLogined()!!){
+            if (UserDB.getUserDB(this)?.isLogined()!!) {
                 Log.d("LoginActivity", "已经有用户登录了，请退出登录后重新登录！")
                 et_account.error = "已经有账号登录了，请退出当前账号后重新登录！"
-                Toast.makeText(applicationContext, "已经有用户登录了，请退出登录后重新登录！",Toast.LENGTH_SHORT).show()
-            }else{
+                Toast.makeText(
+                    applicationContext,
+                    "已经有用户登录了，请退出登录后重新登录！",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
                 val storeUser = getSharedPreferences("userData", Context.MODE_PRIVATE).edit()
                 val account = et_account.text.toString()
                 val password = et_password.text.toString()
 
-                if(testLoginValidate(account, password)){
+                if (testLoginValidate(account, password)) {
                     val user = UserDB.getUserDB(this)?.getUserByUserName(account)
-                    if(user != null){
+                    if (user != null) {
                         //将该用户以登录的状态设置为1
                         UserDB.getUserDB(this)?.updateUserStatus(account, 1)
                         storeUser.putInt("u_id", user.id)
@@ -67,22 +72,23 @@ class LoginActivity : BaseActivity(){
             }
         }
     }
+
     //校验用户输入的账号和密码信息是否和数据库中的一一对应
-    fun testLoginValidate(account:String, password:String):Boolean{
-        var isAllValidated:Boolean = true
+    fun testLoginValidate(account: String, password: String): Boolean {
+        var isAllValidated: Boolean = true
         //验证账号
-        if(!ValidUtil.isAccountValid(account = account).equals("true")){
+        if (!ValidUtil.isAccountValid(account = account).equals("true")) {
             isAllValidated = false
             et_account.error = ValidUtil.isAccountValid(account = account)
-        }else if(!UserDB.getUserDB(this)?.isExistUserByUserName(account)!!){
+        } else if (!UserDB.getUserDB(this)?.isExistUserByUserName(account)!!) {
             et_account.error = "该账号未注册！！！"
             return false
         }
         //验证密码
-        if(!ValidUtil.isPasswordValid(password).equals("true")){
+        if (!ValidUtil.isPasswordValid(password).equals("true")) {
             isAllValidated = false
             et_password.error = ValidUtil.isPasswordValid(password)
-        }else if(!UserDB.getUserDB(this)?.isPasswordCorrectByUserName(account, password)!!){
+        } else if (!UserDB.getUserDB(this)?.isPasswordCorrectByUserName(account, password)!!) {
             isAllValidated = false
             et_password.error = "密码输入错误！！！"
         }
