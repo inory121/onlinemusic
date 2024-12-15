@@ -1,0 +1,2 @@
+include ':onlineMusic'
+rootProject.name = "onlineMusic"

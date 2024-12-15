@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.onlineMusic">
+    <!-- 开启前台service权限声明 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 添加访问网络的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_DOCUMENTS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:icon="@drawable/app"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="m">
+        <activity android:name="com.example.onlineMusic.activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.onlineMusic.activity.SettingsActivity"
+            android:label="设置"/>
+        <activity android:name="com.example.onlineMusic.activity.RegisterActivity" />
+        <activity android:name="com.example.onlineMusic.activity.LoginActivity" />
+        <activity
+            android:name="com.example.onlineMusic.activity.SearchActivity"
+            android:label="搜索" />
+
+        <service
+            android:name="com.example.onlineMusic.service.MusicPlayService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name="com.example.onlineMusic.activity.BaseActivity" />
+        <activity
+            android:name="com.example.onlineMusic.activity.MainActivity"
+            android:label="Wale音乐">
+
+        </activity>
+    </application>
+
+</manifest>
