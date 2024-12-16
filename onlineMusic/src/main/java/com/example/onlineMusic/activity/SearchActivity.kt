@@ -203,8 +203,6 @@ class SearchActivity : BaseActivity() {
                             val picUrl = songs.get(index).al?.picUrl
                             onlinemusiclist.get(index).al?.picUrl = picUrl
                             onlinemusiclist.get(index).musicUrl = picUrl
-
-//                            onlinemusiclist?.get(index)?.al?.picUrl?.let { Log.d("SearchActivity", it) }
                         }
 
                     }
